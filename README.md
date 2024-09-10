@@ -4,6 +4,7 @@
 This project implements an ETL pipeline to extract pageviews data from Wikimedia dumps, transform the data, load it into a database, and finally store the processed data in AWS S3 for further analysis.
 
 ### SYSTEM ARCHITECTURE
+![system architecture](system_architecture.png)
 
 ### THE ETL PIPELINE IN THIS PROJECT CONSISTS OF THE FOLLOWING KEY COMPONENTS:
 - `Data Source`: The URL [Wikimedia pageviews](https://dumps.wikimedia.org/other/pageviews/) provides access to a collection of data files containing pageviews statistics for various Wikimedia projects, including Wikipedia. The data is organized by year, starting from 2015 to 2024, and includes detailed records of the number of views for individual articles over time. This resource is valuable for researchers, developers, and analysts interested in understanding user engagement and trends on Wikimedia platforms.
@@ -17,4 +18,8 @@ This project implements an ETL pipeline to extract pageviews data from Wikimedia
 - Apache Airflow
 - PostgreSQL
 - AWS S3
+
+### USER MANUAL
+- When pulling the source code, create a folder named "`data`".
+- Fill in the "`access_key`" and "`secret_key`" of your AWS account in the file S3-transfer.py.
   
