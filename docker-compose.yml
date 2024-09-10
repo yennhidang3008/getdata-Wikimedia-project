@@ -1,0 +1,39 @@
+version: '3.2'
+
+services:
+  htd-postgres:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USERNAME=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=htd_postgres
+    ports:
+      - 5432:5432
+
+  
+
+  data-extract-container:
+    image: apache/airflow:latest
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./data:/opt/airflow/data
+      - ./scripts:/opt/airflow/scripts
+    ports:
+      - 8080:8080
+    command: bash -c '(airflow db init && airflow users create --username admin --password 12345 --firstname YenNhi --lastname Dang --role Admin --email yennhi300803@gmail.com); airflow webserver & airflow scheduler'
+
+
+volumes:
+  dags:
+  data:
+  scripts:
+
+  
+
+
+
+
+
+
+
+
